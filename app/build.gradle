@@ -34,7 +34,8 @@ android {
 
 dependencies {
 
-    implementation project(':library')
+    //implementation project(':library')
+    implementation 'com.github.LingChenJie:MailSender:1.0.1'
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.5.0'

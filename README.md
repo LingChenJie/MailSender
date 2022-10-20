@@ -8,13 +8,22 @@ MailSender基于[JavaMail for Android](https://javaee.github.io/javamail/Android
 * 支持抄送，密送
 
 ### 集成
+1. Add it in your root build.gradle at the end of repositories:
 ```
-repositories {
-   jcenter()    
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
 }
-
-implementation 'com.teprinciple:mailsender:1.2.0'
 ```
+2. Add the dependency
+```
+dependencies {
+    implementation 'com.github.LingChenJie:MailSender:1.0.1'
+}
+```
+
 ### 使用
 #### kotlin使用
 ```
@@ -31,7 +40,7 @@ implementation 'com.teprinciple:mailsender:1.2.0'
  }
  
  // 发送邮箱
- MailSender.getInstance().sendMail(mail)
+ MailSender.sendMail(mail)
 ```
 
 #### Java使用
@@ -48,7 +57,7 @@ mail.content = "MailSender Android快速实现发送邮件";
 mail.attachFiles = arrayListOf(file);
 
  // 发送邮箱
- MailSender.getInstance().sendMail(mail);
+MailSender.INSTANCE.sendMail(mail);
 ```
 
 #### 发送Html、SpannableString格式的邮件
@@ -92,12 +101,11 @@ content = SpanUtils(this@MainActivity)
 | sslFactory    | ssl实现类  只在openSSL=true时生效   | fjavax.net.ssl.SSLSocketFactory|
 
 
-### Demo体验
-<img src="https://github.com/teprinciple/MailSender/blob/master/img/demo.png" width="220">
-
 #### 关于授权码的获取
 下面是qq邮箱授权码获取
 [怎样获取授权码?](https://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256)
+
+![](http://upload-images.jianshu.io/upload_images/2368611-58043f5d5d0b6137.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 #### gMail注意事项
 如果一直报错 Could not connect to SMTP host: smtp.gmail.com, port: 465, response: -1

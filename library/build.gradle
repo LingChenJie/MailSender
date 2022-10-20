@@ -1,6 +1,14 @@
+import java.text.SimpleDateFormat
+
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+}
+
+static def buildDate() {
+    def df = new SimpleDateFormat("yyyyMMdd")
+    df.setTimeZone(TimeZone.getDefault())
+    return df.format(new Date())
 }
 
 android {
@@ -10,6 +18,8 @@ android {
     defaultConfig {
         minSdk 21
         targetSdk 32
+        versionCode 1
+        versionName "1.0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -30,6 +40,11 @@ android {
     }
     packagingOptions {
         pickFirst 'META-INF/LICENSE.txt' // picks the JavaMail license file
+    }
+    libraryVariants.all { variant ->
+        variant.outputs.all { output ->
+            outputFileName = "mail_sender_" + defaultConfig.versionName + "_" + buildDate() + ".aar"
+        }
     }
 }
 

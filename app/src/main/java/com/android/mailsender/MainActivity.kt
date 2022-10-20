@@ -31,15 +31,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun getMail(): Mail {
         val mail = Mail()
-        mail.mailServerHost = "smtp.163.com"
-        mail.mailServerPort = "25"
+        mail.mailServerHost = "smtp.163.com"// 网易邮箱服务器地址
+        mail.mailServerPort = "25"// 网易邮箱服务器端口
         mail.fromAddress = ""// 发件人邮箱地址
         mail.password = ""// 发件人邮箱授权码
         val toAddress = ArrayList<String>()
-        toAddress.add("")// 收件人邮箱
+        toAddress.add("")// 收件人邮箱1
+        toAddress.add("")// 收件人邮箱2
         mail.toAddress = toAddress
-        mail.subject = "Log Title"// 邮件主题
-        mail.content = "Log Content"// 邮件内容
+        mail.subject = "Mail Title"// 邮件主题
+        mail.content = "Mail Content"// 邮件内容
         return mail
     }
 

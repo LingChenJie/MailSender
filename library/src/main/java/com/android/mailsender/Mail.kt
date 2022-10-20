@@ -21,6 +21,6 @@ data class Mail(
     var content: CharSequence = "", // 邮件内容
     var attachFiles: ArrayList<File> = ArrayList(), // 附件
 
-    var openSSL:Boolean  = false, //是否开启ssl验证 默认关闭
-    var sslFactory:String = "javax.net.ssl.SSLSocketFactory"//SSL构建类名
+    var openSSL: Boolean = false, //是否开启ssl验证 默认关闭
+    var sslFactory: String = "javax.net.ssl.SSLSocketFactory"//SSL构建类名
 )
